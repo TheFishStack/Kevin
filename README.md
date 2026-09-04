@@ -1,2 +1,2 @@
 # Kevin
- A economy discord bot
+ An economy discord bot
