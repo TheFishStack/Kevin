@@ -21,7 +21,7 @@ module.exports = {
             });
             const targetUserProfile = await UserProfile.findOne({userId: targetUser.id,});
             
-            console.log(User.id)
+            console.log('from /pay:')
             console.log(targetUser)
 
             if (interaction.user.id === targetUser.id) {
@@ -42,6 +42,13 @@ module.exports = {
             if (amount < 1) {
                 interaction.editReply({
                     content: 'You must pay at least 1 Dabloon.',
+                    ephemeral: true,
+                });
+                return;
+            }
+            if (!Number.isInteger(amount)) {
+                interaction.editReply({
+                    content: 'Your amount must not contain decimal points.',
                     ephemeral: true,
                 });
                 return;

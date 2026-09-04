@@ -39,7 +39,7 @@ module.exports = {
             await userProfile.save();
 
             interaction.editReply(
-                `**${dailyAmount} Dabloons** were added to your balance.\nNew balance: **${userProfile.balance} Dabloons**\nhttps://cdn.discordapp.com/attachments/1136659595717247047/1136709233132449893/download_9.jpg`
+                `**${dailyAmount} Dabloons** were added to your balance.\nNew balance: **${userProfile.balance} Dabloons**\nhttps://cdn.discordapp.com/attachments/1335176354127151110/1512427274916593815/thumbnail.jpg?ex=6a240d29&is=6a22bba9&hm=d29d229c762d899aafd996af887bc3414c863f64fa563f5ff913fbbf02995c16&`
             );
         }   catch (error) {
             console.log(`Error handling /daily: ${error}`);

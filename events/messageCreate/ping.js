@@ -7,7 +7,7 @@ module.exports = (message) => {
         message.reply('https://tenor.com/view/meme-gif-23192656');
     }
 
-    if (message.content === '<@1005208230164713513>') {
-        message.reply('https://cdn.discordapp.com/attachments/1136659595717247047/1136665869825622086/20230801_002658.jpg');
+    if (message.content === 'Hii <@1136630114558423080>') {
+        message.reply('https://tenor.com/view/dead-chat-dead-group-chat-dead-chat-xd-gif-11830707118005268792');
     }
 }

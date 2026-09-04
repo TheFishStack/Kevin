@@ -18,6 +18,10 @@ module.exports = {
             interaction.reply("You must gamble at least 10 Dabloons");
             return;
         }
+        if (!Number.isInteger(amount)) {
+            interaction.reply('Your amount must not contain decimal points.');
+            return;
+        }
 
         let userProfile = await UserProfile.findOne({
             userId: interaction.user.id,
