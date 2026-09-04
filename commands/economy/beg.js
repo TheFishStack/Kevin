@@ -29,7 +29,7 @@ module.exports = {
                 const { default: prettyMs } = await import('pretty-ms');
 
                 await interaction.editReply(
-                    `You are on cooldown, come back after ${prettyMs(cooldown.endsAt - Date.now())}`
+                    `-# <@${interaction.user.id}>\nYou are on cooldown, come back after ${prettyMs(cooldown.endsAt - Date.now())}`
                 );
                 return;
             }
@@ -54,12 +54,12 @@ module.exports = {
 
                 await Promise.all([cooldown.save(), userProfile.save()]);
 
-                await interaction.editReply(`You got scammed out of **${amount} Dabloons**!\nNew balance: **${userProfile.balance} Dabloons**\nhttps://tenor.com/view/nope-mine-poor-kitty-yoink-other-cat-steals-treat-robber-cat-hides-under-the-cuboard-gif-17036854`);
+                await interaction.editReply(`-# <@${interaction.user.id}>\nYou got scammed out of **${amount} Dabloons**!\nNew balance: **${userProfile.balance} Dabloons**\nhttps://tenor.com/view/nope-mine-poor-kitty-yoink-other-cat-steals-treat-robber-cat-hides-under-the-cuboard-gif-17036854`);
                 return;
             }
 
             if (chance < 40) {
-                await interaction.editReply("You didn't get anything this time. Try again later.");
+                await interaction.editReply(`-# <@${interaction.user.id}>\nYou didn't get anything this time. Try again later.`);
 
                 cooldown.endsAt = Date.now() + 300_000;
                 await cooldown.save();
@@ -79,7 +79,7 @@ module.exports = {
 
             await Promise.all([cooldown.save(), userProfile.save()]);
 
-            await interaction.editReply(`You got **${amount} Dabloons**!\nNew balance: **${userProfile.balance} Dabloons**`);
+            await interaction.editReply(`-# <@${interaction.user.id}>\nYou got **${amount} Dabloons**!\nNew balance: **${userProfile.balance} Dabloons**`);
 
         } catch (error) {
             console.log(`Error handling /beg: ${error}`);

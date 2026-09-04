@@ -23,20 +23,20 @@ module.exports = {
             } 
 
             interaction.editReply(
-                targetUserId === interaction.user.id ? `You have **${userProfile.balance} Dabloons**.\nhttps://cdn.discordapp.com/attachments/1136659595717247047/1136709233132449893/download_9.jpg` : `<@${targetUserId}> has **${userProfile.balance} Dabloons**.\nhttps://cdn.discordapp.com/attachments/1136659595717247047/1136709233132449893/download_9.jpg`
+                targetUserId === interaction.user.id ? `-# <@${interaction.user.id}>\nYou have **${userProfile.balance} Dabloons**.\nHighest Win-Streak: **${userProfile.recordWinStreak}**\nHighest Lose-Streak: **${userProfile.recordLoseStreak}**` : `-# <@${interaction.user.id}>\n**<@${targetUserId}>** has **${userProfile.balance} Dabloons**.\nHighest Win-Streak: **${userProfile.recordWinStreak}**\nHighest Lose-Streak: **${userProfile.recordLoseStreak}**`
             );
         }   catch (error) {
-            console.log(`Error handling /balance: ${error}`);
+            console.log(`Error handling /profile: ${error}`);
         }
     },
 
     data: {
-        name: 'balance',
-        description: "Check a persons Dabloons.",
+        name: 'profile',
+        description: "Check a persons Profile.",
         options: [
             {
                 name: 'target-user',
-                description: "The user whose Dabloons you want to see.",
+                description: "The user whose Profile you want to see.",
                 type: ApplicationCommandOptionType.User,
             }
         ]

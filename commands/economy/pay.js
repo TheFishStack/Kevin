@@ -24,6 +24,14 @@ module.exports = {
             console.log('from /pay:')
             console.log(targetUser)
 
+            if (targetUser.id === null) {
+                interaction.editReply({
+                    content: 'You have to add a target user.',
+                    ephemeral: true,
+                });
+                return;
+            }
+
             if (interaction.user.id === targetUser.id) {
                 interaction.editReply({
                     content: 'You cannot pay yourself.',
@@ -60,10 +68,10 @@ module.exports = {
                 });
             }
 
-            if (!targetUserProfile) { interaction.editReply('The user you want to pay, dosnt have a userprofile yet.\nHe should collect his daily.') }
+            if (!targetUserProfile) { interaction.editReply(`-# <@${interaction.user.id}>\nThe user you want to pay, dosnt have a userprofile yet.\nHe should collect his daily.`) }
     
             if (amount > userProfile.balance) {
-                interaction.editReply("You don't have enough Dabloons.");
+                interaction.editReply(`-# <@${interaction.user.id}>\nYou don't have enough Dabloons.`);
                 return;
             }
 
@@ -74,7 +82,7 @@ module.exports = {
 
 
             interaction.editReply(
-                `You paid **${amount}** Dabloons to ${targetUser}.`
+                `-# <@${interaction.user.id}>\nYou paid **${amount}** Dabloons to ${targetUser}.`
             );
         }   catch (error) {
             console.log(`Error handling /pay: ${error}`);

@@ -10,6 +10,22 @@ const userProfileSchema = new Schema(
             type: Number,
             default: 0,
         },
+        currentWinStreak: {
+            type: Number,
+            default: 0,
+        },
+        currentLoseStreak: {
+            type: Number,
+            default: 0,
+        },
+        recordWinStreak: {
+            type: Number,
+            default: 0,
+        },
+        recordLoseStreak: {
+            type: Number,
+            default: 0,
+        },
         lastDailyCollected: {
             type: Date,
         },

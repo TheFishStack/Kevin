@@ -5,6 +5,6 @@ module.exports = {
     },
 
     run: ({ interaction }) => {
-        interaction.reply('https://cdn.discordapp.com/attachments/1083752938243100762/1136664700973756446/image0.gif');
+        interaction.reply('https://klipy.com/gifs/pong-1');
     },
 };
